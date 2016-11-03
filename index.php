@@ -19,17 +19,22 @@ if ($numberrows>0){
     //this has been a difficult day
     $sweets = "SELECT * FROM sweets";
     $result = mysql_query($sweets);
-    
+    echo '<table border="1">';
     while($row=mysql_fetch_assoc($result)){
+        echo '<tr><td>';
         echo $row["name"];
+        echo '</td></tr>';
     }
+    
+    echo '<form action="logout.php" method="POST">
+    <input type="submit" value="logout">
+    </form>';
     
 }
 
 else {
     echo "<p>You have not logged in.</p>";
-    echo '
-<form method="POST" action="index.php">
+    echo '<form method="POST" action="index.php">
     
     Username <input type="text" name="namebox"><br/>
     Password <input type="text" name="passwordbox"><br/>
